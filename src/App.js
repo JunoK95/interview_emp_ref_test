@@ -24,11 +24,11 @@ class App extends React.Component{
         this.sendContact = this.sendContact.bind(this)
     }
 
-    contactChanged(event){
-        console.log("this is contact", event.target.name)
+    contactChanged(contact){
+        console.log("this is contact", contact)
         console.log(this.state)
         this.setState({
-            contact: {...this.state.contact, [event.target.name]: event.target.value }
+            contact: {...this.state.contact, ...contact }
         })
     }
 

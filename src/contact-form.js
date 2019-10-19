@@ -64,40 +64,52 @@ class ContactForm extends React.Component{
 
         <div className="form-group">
             <label className="form-label">Your Name:</label>
-            <input name="name" className="form-control" value={data.name} onChange={this.props.onChange} />
+            <input 
+                name="name" 
+                className="form-control" 
+                value={data.name} 
+                onChange={(e) => {
+                    this.props.onChange({[e.target.name]: e.target.value})
+                    }} />
         </div>
 
         <div className="form-group">
             <label className="form-label">Your Best Email:</label>
-            <input name="email" className="form-control" value={data.email} onChange={this.props.onChange} />
+            <input 
+                name="email" 
+                className="form-control" 
+                value={data.email} 
+                onChange={(e) => {
+                    this.props.onChange({[e.target.name]: e.target.value})
+                    }} />
         </div>
 
         <label className="form-label">Select your membership option:</label>
         <div className="form-group row">
             <label className="form-label col-xs-4">
-            <input type="radio" name="option" value="A" onChange={this.props.onChange} checked={data.option === 'A'} /> Option A</label>
+            <input type="radio" name="option" value="A" onChange={(e) => {this.props.onChange({[e.target.name]: e.target.value})}} checked={data.option === 'A'} /> Option A</label>
             <label className="form-label col-xs-4">
-            <input type="radio" name="option" value="B" onChange={this.props.onChange} checked={data.option === 'B'} /> Option B</label>
+            <input type="radio" name="option" value="B" onChange={(e) => {this.props.onChange({[e.target.name]: e.target.value})}} checked={data.option === 'B'} /> Option B</label>
             <label className="form-label col-xs-4">
-            <input type="radio" name="option" value="C" onChange={this.props.onChange} checked={data.option === 'C'} /> Option C</label>
+            <input type="radio" name="option" value="C" onChange={(e) => {this.props.onChange({[e.target.name]: e.target.value})}} checked={data.option === 'C'} /> Option C</label>
         </div>
 
         <hr/>
 
         <div className="form-group">
             <label className="form-label">What can we help you with:</label>
-            <select  className="form-control" name="select" value={data.select} onChange={this.props.onChange}>
+            <select  className="form-control" name="select" value={data.select} onChange={(e) => {this.props.onChange({[e.target.name]: e.target.value})}} >
                 {optionDropdown}
             </select>
         </div>
 
         <div className="form-group">
             <label className="form-label">Message:</label>
-            <textarea name="message" rows="10" placeholder="Please type your question here"  className="form-control" onChange={this.props.onChange} />
+            <textarea name="message" rows="10" placeholder="Please type your question here"  className="form-control" onChange={(e) => {this.props.onChange({[e.target.name]: e.target.value})}} />
         </div>
 
         <div className="form-group">
-            <label className="form-label"> <input type="checkbox" name="terms" value={data.terms} onChange={this.props.onChange} /> I agree to terms and conditions </label>
+            <label className="form-label"> <input type="checkbox" name="terms" value={data.terms} onChange={(e) => {this.props.onChange({[e.target.name]: !data.terms})}} /> I agree to terms and conditions </label>
         </div>
             <input type="submit" value="Send" className="contactform-submit" />
         </form>
