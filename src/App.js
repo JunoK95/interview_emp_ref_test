@@ -25,8 +25,6 @@ class App extends React.Component{
     }
 
     contactChanged(contact){
-        console.log("this is contact", contact)
-        console.log(this.state)
         this.setState({
             contact: {...this.state.contact, ...contact }
         })
